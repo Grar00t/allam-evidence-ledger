@@ -1,10 +1,10 @@
 # ALLaM Evidence Ledger
 
-Technical evidence for ALLaM adapter experiments.
+Technical evidence for ALLaM adapter experiments and a separately documented consumer-service dispute.
 
 **Policy: NO CLAIM BEYOND THE HASH.**
 
-This repository contains only the ALLaM experiment records needed to reproduce or audit the recorded results.
+This repository records reproducible experiment evidence and a sanitized dispute record. It does not publish private billing documents, bank data, account identifiers, or unredacted chat exports.
 
 ## Evidence map
 
@@ -13,6 +13,12 @@ This repository contains only the ALLaM experiment records needed to reproduce o
 | R3/D3 symbolic logic adapter | VERIFIED_TASK_SPECIFIC | Frozen V6: base 357/600 (59.50%), adapter 367/600 (61.17%), net +10 |
 | Math V2 QLoRA candidate | CANDIDATE_EXTERNAL_EVAL_PENDING | Group-separated 2,000/250 MetaMathQA split; dev loss 0.180739 -> 0.133401 |
 | Adapter-MoE V3 | DO_NOT_PROMOTE | Fail-closed routing contract and 8/8 route smoke; capability failures remain |
+
+## Consumer-service dispute record
+
+See [OPENAI_DISPUTE.md](OPENAI_DISPUTE.md).
+
+That page separates verified billing facts, the owner's allegation that paid-API steering felt coercive/extortionate in effect, verified context-integrity evidence, claims still requiring primary-source verification, and public court cases involving Sam Altman with allegations and outcomes clearly distinguished.
 
 ## R3/D3
 
