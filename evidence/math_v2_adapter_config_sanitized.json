@@ -1,0 +1,20 @@
+{
+  "format": "SANITIZED_MATH_V2_ADAPTER_CONFIG_V1",
+  "base_model": "ALLaM-7B-Instruct-preview",
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "r": 16,
+  "bias": "none",
+  "peft_type": "LORA",
+  "task_type": "CAUSAL_LM",
+  "target_modules": [
+    "o_proj",
+    "up_proj",
+    "k_proj",
+    "q_proj",
+    "gate_proj",
+    "v_proj",
+    "down_proj"
+  ],
+  "source_note": "Sanitized public summary. The original adapter_config is not published here because it contains a third-party organization namespace that the repository owner requested removed."
+}
