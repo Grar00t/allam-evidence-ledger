@@ -80,6 +80,6 @@ These demonstrate systems work outside a hosted-model wrapper: native C11 model/
 - private datasets
 - ALLaM 7B base-model weights
 - claims inferred from screenshots without receipts
-- superseded R3/D3 600/600 marketing
+- superseded historical R3/D3 600/600 result/claim
 
 See CLAIMS.md and ROADMAP.md.
