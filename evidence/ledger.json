@@ -1,7 +1,6 @@
 {
   "format": "ALLAM-EVIDENCE-LEDGER-V1",
   "policy": "NO CLAIM BEYOND THE HASH",
-  "private_humain_material_included": false,
   "projects": [
     {
       "id": "r3d3_logic_v6",
@@ -34,21 +33,6 @@
       "router_serving_authority": false,
       "route_smoke": "8/8",
       "claim_boundary": "Bounded routing/integrity smoke only; capability failures remain."
-    },
-    {
-      "id": "niyah_engine",
-      "status": "PUBLIC_RESEARCH_RUNTIME",
-      "url": "https://github.com/Grar00t/Niyah.Engine"
-    },
-    {
-      "id": "casper",
-      "status": "PUBLIC_RESEARCH_RUNTIME",
-      "url": "https://github.com/Grar00t/casper"
-    },
-    {
-      "id": "opcode_orchestra",
-      "status": "PUBLIC_SYSTEMS_ENGINEERING",
-      "url": "https://github.com/Grar00t/opcode-orchestra"
     }
   ]
 }
