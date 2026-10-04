@@ -1,0 +1,59 @@
+{
+  "format": "R3-D3-CODE-EXPERT-DIAGNOSIS-V1",
+  "recorded_at_utc": "2026-10-04T09:10:00Z",
+  "v1_adapter_sha256": "a8ccaa70774f9fd77305eba939c1ab3725d0731a3c124f94f2c198f9c5266adb",
+  "stage2_adapter_sha256": "d2c2f27e00757092bc02599ed67d25c23e5b967562acfb5fe7f468ad4b7f6232",
+  "dataset_sha256": "375d9b0604639be681ad21698e60be5e86e2d228a981202cc4dccf6cde12dd1f",
+  "dataset_structure": {
+    "rows": 240,
+    "train_rows": 192,
+    "dev_rows": 48,
+    "unique_prompts": 240,
+    "unique_targets": 20,
+    "target_repetition": "every unique target repeats exactly 12 times",
+    "prompt_code_tag_rows": 240,
+    "assistant_code_tag_rows": 240,
+    "exact_prompt_overlap_train_dev": 0,
+    "exact_target_overlap_train_dev": 20,
+    "dev_rows_target_seen_in_train": 48,
+    "dev_rows_task_title_seen_in_train": 48,
+    "dev_rows_code_context_seen_in_train": 48
+  },
+  "training_evidence": {
+    "v1_eval_loss": 0.7735550999641418,
+    "stage2_eval_before": 0.7735550999641418,
+    "stage2_eval_after": 0.20661413669586182,
+    "stage2_accepted_by_eval_loss": true,
+    "interpretation": "The row-random dev split is structurally leaked by task/context/target groups, so the lower eval loss is not independent generalization evidence."
+  },
+  "live_smoke": {
+    "receipt_sha256": "4121049fc17f9fc4fd34a707f6771cd5d8d7ea07c27a8e867ebec9ab3e1ba38e",
+    "prompts": 6,
+    "observations": [
+      "V1 repeated <CODE> on cpp_even and cpp_reverse.",
+      "Stage2 fixed cpp_even but still repeated <CODE> on cpp_reverse.",
+      "Stage2 c_strlen answer was not a valid implementation and was semantically confused.",
+      "Stage2 cpp_sum returned prose rather than the requested function.",
+      "Base produced more directly usable code on several of the six smoke prompts."
+    ]
+  },
+  "root_cause_status": {
+    "proven": [
+      "template/group leakage in the dev split",
+      "extreme target duplication",
+      "assistant targets are universally prefixed with <CODE>",
+      "generation collapse exists on OOD-style prompts"
+    ],
+    "inferred": [
+      "format overfitting contributes to the collapse",
+      "the leaked dev loss materially overstates generalization"
+    ],
+    "unknown": [
+      "the exact optimizer/token-level mechanism causing repeated <CODE> generation"
+    ]
+  },
+  "decision": "REBUILD_CODE_V2_FROM_SCRATCH",
+  "do_not_continue_stage2": true,
+  "runtime_authority": false,
+  "claim_boundary": "Dataset design defects and live failures are verified. Causal attribution to one internal mechanism remains unproven."
+}

@@ -1,0 +1,28 @@
+﻿{
+    "format":  "R3-D3-ADAPTER-MOE-V3-VERIFICATION-V1",
+    "recorded_at_utc":  "2026-10-04T08:23:57.3591539Z",
+    "branch":  "feat/allam-adapter-moe-20261002",
+    "serving_base_revision":  "a28dd1e67420cde72d3629c8633a974cf7d9c366",
+    "historical_router_training_revision":  "825fb30305d701be77ae1bbca5e327c2fee3142e",
+    "router_serving_authority":  false,
+    "routing_policy":  "explicit_evidence_gates_else_base_v1",
+    "bundle_manifest_sha256":  "5dc44466d47c44a2d28dbf0eb1a51bc37fa2c1abddde269553781689f893121e",
+    "bundle_receipt_sha256":  "f2da873cd05a41b34e64427cb3e480a7c5308f531aa91c4628ca8e495289af1c",
+    "bundle_sha256sums_sha256":  "0db90a400f371605a64d6e5e09044a513d8031775899076ae177643e3ed49e94",
+    "payload_hash_verification":  "PASS",
+    "payload_rows":  16,
+    "smoke_receipt_sha256":  "61c10177ccdb23d4c3c6574f2b44214dbadb83fe7f6af2199897e99cdbc55dd9",
+    "route_matches":  "8/8",
+    "decision":  "DO_NOT_PROMOTE",
+    "observed_failures":  [
+                              "Base arithmetic: 37x19 returned 683; expected 703",
+                              "Dialect smoke: one prompt echoed instead of transformed",
+                              "C++ code smoke: repeated code-tag degeneration",
+                              "Dialect/code historical training receipts do not pin exact Hub base revision"
+                          ],
+    "stable_main":  "KEEP_R3D3_SINGLE_LOGIC_ADAPTER",
+    "experimental_branch":  "CODE_CONTRACT_LINEAGE_VERIFICATION_ONLY",
+    "full_bundle_public_push":  false,
+    "runtime_authority":  false,
+    "claim_boundary":  "V3 bundle integrity and eight-prompt live smoke only; no capability benchmark or full-bundle promotion."
+}

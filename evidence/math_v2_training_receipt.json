@@ -1,0 +1,77 @@
+{
+  "format": "ALLAM-MATH-EXPERT-V2",
+  "script_sha256": "4a49e49a9d320e3f278b77dc2b9b42076703d39483f79a92c723b50907b9b652",
+  "base_model": "humain-ai/ALLaM-7B-Instruct-preview",
+  "base_revision": "a28dd1e67420cde72d3629c8633a974cf7d9c366",
+  "dataset": "meta-math/MetaMathQA",
+  "dataset_revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+  "dataset_license": "mit",
+  "seed": 20261002,
+  "grouping": "unique original_question; no train/dev group overlap",
+  "train_rows": 2000,
+  "dev_rows": 250,
+  "train_items": 2000,
+  "dev_items": 250,
+  "train_sha256": "18a65628faac0d021edfac54692ea74ed3281f1cc9f62252ba5fd2de19f3b5f4",
+  "dev_sha256": "aa1859c17f1186e711cb5ff294b40798faf314a7448bb4b27568f514847d3c3f",
+  "train_tokenization": {
+    "rows": 2000,
+    "kept": 2000,
+    "dropped_prompt_too_long": 0,
+    "answer_truncated": 79
+  },
+  "dev_tokenization": {
+    "rows": 250,
+    "kept": 250,
+    "dropped_prompt_too_long": 0,
+    "answer_truncated": 8
+  },
+  "truncation_policy": "preserve full prompt; truncate assistant tail only; drop prompt if fewer than 16 answer tokens fit",
+  "max_seq_length": 512,
+  "learning_rate": 5e-05,
+  "epochs": 1,
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "targets": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+    ],
+    "trainable_params": 39976960
+  },
+  "eval_base": {
+    "eval_loss": 0.18073922395706177,
+    "eval_model_preparation_time": 0.0002,
+    "eval_runtime": 863.8589,
+    "eval_samples_per_second": 0.289,
+    "eval_steps_per_second": 0.289
+  },
+  "eval_after": {
+    "eval_loss": 0.13340069353580475,
+    "eval_model_preparation_time": 0.0002,
+    "eval_runtime": 855.3765,
+    "eval_samples_per_second": 0.292,
+    "eval_steps_per_second": 0.292,
+    "epoch": 1.0
+  },
+  "improves_dev_loss": true,
+  "train_metrics": {
+    "train_runtime": 21361.5955,
+    "train_samples_per_second": 0.094,
+    "train_steps_per_second": 0.012,
+    "total_flos": 4.1646443986944e+16,
+    "train_loss": 0.1425273904800415,
+    "epoch": 1.0
+  },
+  "runtime_seconds": 21362.10204219818,
+  "cuda_device": "Tesla T4",
+  "bf16_supported": true,
+  "compute_dtype": "torch.bfloat16",
+  "claim_boundary": "Candidate math expert only; promotion requires external held-out math evaluation."
+}

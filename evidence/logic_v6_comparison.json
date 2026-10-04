@@ -1,0 +1,24 @@
+{
+  "dataset": "V6",
+  "dataset_sha256": "a2d27bc8a249c0d32fdd33c7abc89323d50b1000aba9a18b111bc9334d4c6a63",
+  "base": {
+    "name": "B0_ALLaM7B",
+    "correct": 357,
+    "accuracy": 0.595,
+    "result_sha256": "11841e08ea8eb237ded20cd50d3525080f072b6ef95f92e62b91957735dc2b48",
+    "summary_sha256": "b61340dc2f90d33da6614678befd409b612c9a64d91c3538dba3bff6e33789d8"
+  },
+  "adapter": {
+    "name": "R3_D3",
+    "correct": 367,
+    "accuracy": 0.6116666666666667,
+    "adapter": "D:\\ALLAMDATA\\model\\D3",
+    "result_sha256": "6a136fbc61109dbfbf756962dfb5afebc4ed3967c14413aa13f8531b263b8a99",
+    "summary_sha256": "8989764f98cc7f1e26c7eee64c6942416108e2043c89aafb3003cedb61bbff27"
+  },
+  "wrong_to_right": 19,
+  "right_to_wrong": 9,
+  "both_wrong": 224,
+  "net_gain": 10,
+  "comparison_sha256": "3d1053776cfbb5f243d5f3a9a3b71a4e8ca3d6757fe1426ef034be261b635661"
+}

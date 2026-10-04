@@ -1,0 +1,54 @@
+{
+  "format": "ALLAM-EVIDENCE-LEDGER-V1",
+  "policy": "NO CLAIM BEYOND THE HASH",
+  "private_humain_material_included": false,
+  "projects": [
+    {
+      "id": "r3d3_logic_v6",
+      "status": "VERIFIED_TASK_SPECIFIC",
+      "public_url": "https://huggingface.co/sulaimanalshammari/R3-D3-ALLaM-7B-Logic-Adapter",
+      "base": "humain-ai/ALLaM-7B-Instruct-preview",
+      "base_correct": 357,
+      "adapter_correct": 367,
+      "rows": 600,
+      "net_gain": 10,
+      "adapter_sha256": "c6a90800e51c3a8f8568cda42edbebf7334f9d81fbafb9a11e10a72b436d0fe7",
+      "claim_boundary": "Frozen symbolic-entailment task only."
+    },
+    {
+      "id": "math_v2",
+      "status": "CANDIDATE_EXTERNAL_EVAL_PENDING",
+      "base": "humain-ai/ALLaM-7B-Instruct-preview",
+      "train_rows": 2000,
+      "dev_rows": 250,
+      "eval_loss_base": 0.18073922395706177,
+      "eval_loss_after": 0.13340069353580475,
+      "adapter_sha256": "6486325cbb6def43363cd1d2926e8ead08d3bb7aacc941a92470ee5629bcd7f5",
+      "adapter_bytes": 159967880,
+      "claim_boundary": "Training and dev-loss evidence only; external held-out math gate required."
+    },
+    {
+      "id": "adapter_moe_v3",
+      "status": "DO_NOT_PROMOTE",
+      "public_branch": "https://huggingface.co/sulaimanalshammari/R3-D3-ALLaM-7B-Logic-Adapter/tree/feat/allam-adapter-moe-20261002",
+      "router_serving_authority": false,
+      "route_smoke": "8/8",
+      "claim_boundary": "Bounded routing/integrity smoke only; capability failures remain."
+    },
+    {
+      "id": "niyah_engine",
+      "status": "PUBLIC_RESEARCH_RUNTIME",
+      "url": "https://github.com/Grar00t/Niyah.Engine"
+    },
+    {
+      "id": "casper",
+      "status": "PUBLIC_RESEARCH_RUNTIME",
+      "url": "https://github.com/Grar00t/casper"
+    },
+    {
+      "id": "opcode_orchestra",
+      "status": "PUBLIC_SYSTEMS_ENGINEERING",
+      "url": "https://github.com/Grar00t/opcode-orchestra"
+    }
+  ]
+}
