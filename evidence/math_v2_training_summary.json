@@ -1,0 +1,31 @@
+{
+  "format": "SANITIZED_ALLAM_MATH_EXPERT_V2_SUMMARY",
+  "script_sha256": "4a49e49a9d320e3f278b77dc2b9b42076703d39483f79a92c723b50907b9b652",
+  "base_model": "ALLaM-7B-Instruct-preview",
+  "base_revision": "a28dd1e67420cde72d3629c8633a974cf7d9c366",
+  "dataset": "meta-math/MetaMathQA",
+  "dataset_revision": "aa4f34d3d2d3231299b5b03d9b3e5a20da45aa18",
+  "dataset_license": "mit",
+  "seed": 20261002,
+  "grouping": "unique original_question; no train/dev group overlap",
+  "train_rows": 2000,
+  "dev_rows": 250,
+  "train_sha256": "18a65628faac0d021edfac54692ea74ed3281f1cc9f62252ba5fd2de19f3b5f4",
+  "dev_sha256": "aa1859c17f1186e711cb5ff294b40798faf314a7448bb4b27568f514847d3c3f",
+  "max_seq_length": 512,
+  "learning_rate": 0.00005,
+  "epochs": 1,
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "trainable_params": 39976960
+  },
+  "eval_base_loss": 0.18073922395706177,
+  "eval_after_loss": 0.13340069353580475,
+  "improves_dev_loss": true,
+  "cuda_device": "Tesla T4",
+  "compute_dtype": "torch.bfloat16",
+  "claim_boundary": "Candidate math expert only; promotion requires external held-out math evaluation.",
+  "source_note": "Sanitized public summary. Original receipt is preserved privately and was not copied because it contains a third-party organization namespace the repository owner requested removed."
+}
