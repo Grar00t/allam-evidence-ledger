@@ -1,12 +1,12 @@
 {
-  "format": "ALLAM-EVIDENCE-LEDGER-V1",
+  "format": "ALLAM-EVIDENCE-LEDGER-V2",
   "policy": "NO CLAIM BEYOND THE HASH",
   "projects": [
     {
       "id": "r3d3_logic_v6",
       "status": "VERIFIED_TASK_SPECIFIC",
       "public_url": "https://huggingface.co/sulaimanalshammari/R3-D3-ALLaM-7B-Logic-Adapter",
-      "base": "humain-ai/ALLaM-7B-Instruct-preview",
+      "base": "ALLaM-7B-Instruct-preview",
       "base_correct": 357,
       "adapter_correct": 367,
       "rows": 600,
@@ -17,7 +17,7 @@
     {
       "id": "math_v2",
       "status": "CANDIDATE_EXTERNAL_EVAL_PENDING",
-      "base": "humain-ai/ALLaM-7B-Instruct-preview",
+      "base": "ALLaM-7B-Instruct-preview",
       "train_rows": 2000,
       "dev_rows": 250,
       "eval_loss_base": 0.18073922395706177,
