@@ -2,7 +2,7 @@
 
 R3/D3 is a PEFT/QLoRA adapter over humain-ai/ALLaM-7B-Instruct-preview for a narrow symbolic-entailment task.
 
-## Frozen re-audit
+## Frozen evaluation
 
 | System | Correct | Accuracy |
 | --- | ---: | ---: |
@@ -20,7 +20,5 @@ Integrity:
 - base result SHA-256: 11841e08ea8eb237ded20cd50d3525080f072b6ef95f92e62b91957735dc2b48
 - adapter result SHA-256: 6a136fbc61109dbfbf756962dfb5afebc4ed3967c14413aa13f8531b263b8a99
 - adapter artifact SHA-256: c6a90800e51c3a8f8568cda42edbebf7334f9d81fbafb9a11e10a72b436d0fe7
-
-The receipt explicitly supersedes the earlier 600/600 result.
 
 Boundary: this is evidence for one frozen symbolic-entailment protocol, not broad model superiority.
