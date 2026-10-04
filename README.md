@@ -8,9 +8,9 @@ This repository is not evidence about HUMAIN production systems and is not affil
 
 ## Why this exists
 
-The purpose is to preserve a short chain from experiment to receipt to hash to bounded conclusion, including negative results and superseded claims.
+The purpose is to preserve a short chain from experiment to receipt to hash to bounded conclusion, including negative results when they affect engineering decisions.
 
-An earlier R3/D3 600/600 headline was superseded after re-audit rather than retained. Experimental experts that fail live or external gates remain DO_NOT_PROMOTE.
+Experimental experts that fail live or external gates remain DO_NOT_PROMOTE.
 
 ## Evidence map
 
@@ -80,6 +80,5 @@ These demonstrate systems work outside a hosted-model wrapper: native C11 model/
 - private datasets
 - ALLaM 7B base-model weights
 - claims inferred from screenshots without receipts
-- superseded historical R3/D3 600/600 result/claim
 
 See CLAIMS.md and ROADMAP.md.
