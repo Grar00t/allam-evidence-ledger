@@ -96,6 +96,13 @@ class VerifyEvidenceTests(unittest.TestCase):
         )
         self.assertEqual(1, self.run_verify(root))
 
+    def test_nested_manifest_named_file_is_not_exempt(self) -> None:
+        root = self.make_repo({"record.json": b'{"ok": true}'})
+        nested = root / "evidence" / "archive"
+        nested.mkdir()
+        (nested / "SHA256SUMS.txt").write_text("not the root manifest\n", encoding="utf-8")
+        self.assertEqual(1, self.run_verify(root))
+
 
 if __name__ == "__main__":
     unittest.main()
