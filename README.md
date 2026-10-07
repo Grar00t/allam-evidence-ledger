@@ -14,11 +14,9 @@ This repository records reproducible experiment evidence and a sanitized dispute
 | Math V2 QLoRA candidate | CANDIDATE_EXTERNAL_EVAL_PENDING | Group-separated 2,000/250 MetaMathQA split; dev loss 0.180739 -> 0.133401 |
 | Adapter-MoE V3 | DO_NOT_PROMOTE | Fail-closed routing contract and 8/8 route smoke; capability failures remain |
 
-## Consumer-service dispute record
+## Scope boundary
 
-See [OPENAI_DISPUTE.md](OPENAI_DISPUTE.md).
-
-That page separates verified billing facts, the owner's allegation that paid-API steering felt coercive/extortionate in effect, verified context-integrity evidence, claims still requiring primary-source verification, and public court cases involving Sam Altman with allegations and outcomes clearly distinguished.
+The current repository contains the technical experiment evidence listed below. It does not currently contain a consumer-service dispute file, court-case record, or primary billing evidence. Do not infer those materials from this README.
 
 ## R3/D3
 
