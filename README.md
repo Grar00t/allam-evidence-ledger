@@ -1,10 +1,10 @@
 # ALLaM Evidence Ledger
 
-Technical evidence for ALLaM adapter experiments and a separately documented consumer-service dispute.
+Technical evidence for ALLaM adapter experiments.
 
 **Policy: NO CLAIM BEYOND THE HASH.**
 
-This repository records reproducible experiment evidence and a sanitized dispute record. It does not publish private billing documents, bank data, account identifiers, or unredacted chat exports.
+This repository records reproducible experiment evidence. It does not publish private billing documents, bank data, account identifiers, unredacted chat exports, consumer-service dispute files, court-case records, or primary billing evidence.
 
 ## Evidence map
 
@@ -16,7 +16,7 @@ This repository records reproducible experiment evidence and a sanitized dispute
 
 ## Scope boundary
 
-The current repository contains the technical experiment evidence listed below. It does not currently contain a consumer-service dispute file, court-case record, or primary billing evidence. Do not infer those materials from this README.
+The current repository contains the technical experiment evidence listed below. Do not infer consumer-service dispute material, court records, or private billing evidence from this repository.
 
 ## R3/D3
 
@@ -62,7 +62,10 @@ The learned router has no serving authority. Unsupported/general prompts remain 
 ## Verify evidence
 
 ```bash
+python -m unittest discover -s tests -v
 python scripts/verify_evidence.py
 ```
 
-See `CLAIMS.md` for claim boundaries and `ROADMAP.md` for pending verification work.
+The verifier rejects malformed or duplicate manifest entries, paths escaping `evidence/`, missing files, hash mismatches, invalid JSON evidence, and evidence files that are not tracked by `SHA256SUMS.txt`.
+
+See `CLAIMS.md` for claim boundaries and `ROADMAP.md` for open verification gates.
