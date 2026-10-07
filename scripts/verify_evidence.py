@@ -109,9 +109,11 @@ def verify(root: Path | None = None) -> int:
 
     if evidence.is_dir():
         actual_files = {
-            path.relative_to(evidence).as_posix()
+            relative
             for path in evidence.rglob("*")
-            if path.is_file() and path.name != MANIFEST_NAME
+            if path.is_file()
+            for relative in [path.relative_to(evidence).as_posix()]
+            if relative != MANIFEST_NAME
         }
         for name in sorted(actual_files - listed):
             errors.append(f"untracked evidence file: {name}")
