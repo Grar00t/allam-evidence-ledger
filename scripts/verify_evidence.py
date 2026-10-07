@@ -18,6 +18,10 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def reject_nonstandard_json_constant(value: str) -> None:
+    raise ValueError(f"non-standard JSON constant: {value}")
+
+
 def parse_manifest(manifest: Path, evidence: Path) -> tuple[list[tuple[str, str, Path]], list[str]]:
     entries: list[tuple[str, str, Path]] = []
     errors: list[str] = []
@@ -43,24 +47,31 @@ def parse_manifest(manifest: Path, evidence: Path) -> tuple[list[tuple[str, str,
         if not name:
             errors.append(f"manifest line {line_number}: empty path")
             continue
-        if name in seen:
-            errors.append(f"manifest line {line_number}: duplicate path: {name}")
-            continue
 
         relative = Path(name)
         if relative.is_absolute() or ".." in relative.parts:
             errors.append(f"manifest line {line_number}: path escapes evidence/: {name}")
             continue
 
-        path = (evidence / relative).resolve()
+        normalized = relative.as_posix()
+        if normalized in seen:
+            errors.append(f"manifest line {line_number}: duplicate path: {normalized}")
+            continue
+
+        lexical_path = evidence / relative
+        if lexical_path.is_symlink():
+            errors.append(f"manifest line {line_number}: symlink evidence is not allowed: {normalized}")
+            continue
+
+        path = lexical_path.resolve()
         try:
             path.relative_to(evidence_root)
         except ValueError:
-            errors.append(f"manifest line {line_number}: path escapes evidence/: {name}")
+            errors.append(f"manifest line {line_number}: path escapes evidence/: {normalized}")
             continue
 
-        seen.add(name)
-        entries.append((expected, name, path))
+        seen.add(normalized)
+        entries.append((expected, normalized, path))
 
     return entries, errors
 
@@ -73,7 +84,7 @@ def verify(root: Path | None = None) -> int:
 
     listed: set[str] = set()
     for expected, name, path in entries:
-        listed.add(Path(name).as_posix())
+        listed.add(name)
 
         if not path.is_file():
             errors.append(f"missing evidence file: {name}")
@@ -84,10 +95,13 @@ def verify(root: Path | None = None) -> int:
             errors.append(f"hash mismatch: {name}: expected {expected}, got {actual}")
             continue
 
-        if path.suffix.lower() == ".json":
+        if Path(name).suffix.lower() == ".json":
             try:
-                json.loads(path.read_text(encoding="utf-8-sig"))
-            except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                json.loads(
+                    path.read_text(encoding="utf-8-sig"),
+                    parse_constant=reject_nonstandard_json_constant,
+                )
+            except (UnicodeDecodeError, json.JSONDecodeError, ValueError) as exc:
                 errors.append(f"invalid json: {name}: {exc}")
                 continue
 
