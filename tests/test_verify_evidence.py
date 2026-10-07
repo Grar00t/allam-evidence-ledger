@@ -67,8 +67,33 @@ class VerifyEvidenceTests(unittest.TestCase):
         manifest.write_text(f"{line}\n{line}\n", encoding="utf-8")
         self.assertEqual(1, self.run_verify(root))
 
+    def test_duplicate_manifest_alias_fails(self) -> None:
+        payload = b'{"ok": true}'
+        root = self.make_repo({"record.json": payload})
+        manifest = root / "evidence" / "SHA256SUMS.txt"
+        line = manifest.read_text(encoding="utf-8").strip()
+        manifest.write_text(f"{line}\n{digest(payload)}  ./record.json\n", encoding="utf-8")
+        self.assertEqual(1, self.run_verify(root))
+
     def test_invalid_json_fails_even_when_hash_matches(self) -> None:
         root = self.make_repo({"record.json": b'{"broken":'})
+        self.assertEqual(1, self.run_verify(root))
+
+    def test_nonstandard_json_constant_fails(self) -> None:
+        root = self.make_repo({"record.json": b'{"score": NaN}'})
+        self.assertEqual(1, self.run_verify(root))
+
+    def test_symlink_evidence_fails(self) -> None:
+        payload = b'{"ok": true}'
+        root = self.make_repo({"payload.txt": payload})
+        evidence = root / "evidence"
+        link = evidence / "record.json"
+        link.symlink_to("payload.txt")
+        manifest = evidence / "SHA256SUMS.txt"
+        manifest.write_text(
+            manifest.read_text(encoding="utf-8") + f"{digest(payload)}  record.json\n",
+            encoding="utf-8",
+        )
         self.assertEqual(1, self.run_verify(root))
 
 
