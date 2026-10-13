@@ -1,0 +1,3 @@
+# Evidence hashes bind the committed bytes on every checkout platform.
+/evidence/*.json text eol=lf
+/evidence/SHA256SUMS.txt text eol=lf
